@@ -7,6 +7,7 @@ from redis.asyncio import Redis
 from src.core.config import settings
 from src.handlers.commands import router as commands_router
 from src.handlers.resume_handlers import router as resume_router
+from src.handlers.resume_analysis_handlers import router as resume_analysis_router
 from src.utils.logger import logger
 
 
@@ -27,6 +28,7 @@ async def main():
     dp = Dispatcher(storage=storage)
     dp.include_router(commands_router)
     dp.include_router(resume_router)
+    dp.include_router(resume_analysis_router)
     
     logger.info(f"Bot configured. Starting polling...")
     

@@ -16,7 +16,8 @@ async def handle_start(message: Message):
         "Привет! Я помогу найти востребованные навыки и улучшить резюме.\n\n"
         "Доступные команды:\n"
         "/find - Анализ рынка по профессии\n"
-        "/upload_resume - Загрузить и проанализировать резюме"
+        "/upload_resume - Загрузить и проанализировать резюме\n"
+        "/analyze_resume - Углубленный анализ резюме"
     )
     await message.answer(welcome_text)
 

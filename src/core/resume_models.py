@@ -110,11 +110,18 @@ class ResumeAnalysis:
     matching_skills: List[str]
     competitiveness_score: float
     recommendations: List[str]
+    score_breakdown: dict = field(default_factory=dict)
     
     def format_report(self) -> str:
         message = "=== СРАВНЕНИЕ С РЫНКОМ ===\n\n"
         
         message += f"Оценка конкурентоспособности: {self.competitiveness_score:.1f}/10\n\n"
+
+        if self.score_breakdown:
+            message += "=== РАЗБИВКА ОЦЕНКИ ===\n"
+            for label, score in self.score_breakdown.items():
+                message += f"- {label}: {score:.1f}/10\n"
+            message += "\n"
         
         if self.matching_skills:
             message += f"Совпадающие навыки ({len(self.matching_skills)}):\n"
