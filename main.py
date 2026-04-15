@@ -5,7 +5,8 @@ from aiogram.fsm.storage.redis import RedisStorage
 from redis.asyncio import Redis
 
 from src.core.config import settings
-from src.handlers.commands import router
+from src.handlers.commands import router as commands_router
+from src.handlers.resume_handlers import router as resume_router
 from src.utils.logger import logger
 
 
@@ -24,7 +25,8 @@ async def main():
     storage = RedisStorage(redis=redis)
     
     dp = Dispatcher(storage=storage)
-    dp.include_router(router)
+    dp.include_router(commands_router)
+    dp.include_router(resume_router)
     
     logger.info(f"Bot configured. Starting polling...")
     

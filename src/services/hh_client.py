@@ -27,6 +27,7 @@ class HeadHunterClient:
                 "text": query,
                 "per_page": min(limit, 100),
                 "search_field": "name",
+                "area": "113",
             }
             
             async with session.get(

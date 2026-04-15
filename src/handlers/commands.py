@@ -13,8 +13,10 @@ hh_client = HeadHunterClient()
 @router.message(CommandStart())
 async def handle_start(message: Message):
     welcome_text = (
-        "Привет! Я помогу найти востребованные навыки для любой профессии.\n\n"
-        "Используй команду /find для начала поиска."
+        "Привет! Я помогу найти востребованные навыки и улучшить резюме.\n\n"
+        "Доступные команды:\n"
+        "/find - Анализ рынка по профессии\n"
+        "/upload_resume - Загрузить и проанализировать резюме"
     )
     await message.answer(welcome_text)
 
